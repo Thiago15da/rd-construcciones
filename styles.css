@@ -80,3 +80,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--focus);outline-offs
 @media(prefers-reduced-motion:reduce){
  .gallery-trigger img,.gallery-item:hover .gallery-trigger img,.wa-floating{transition:none;transform:none}
 }
+
+/* Iconografía final: flechas vectoriales finas, sin símbolos estilo emoji */
+.line-arrow{width:17px;height:17px;display:inline-block;flex-shrink:0;vertical-align:-3px;stroke:currentColor;transition:transform .22s ease}
+a:hover .line-arrow{transform:translate(2px,-2px)}
+.nav-contact .line-arrow,.hero-actions .line-arrow,.under-link .line-arrow{width:16px;height:16px}
+.service-arrow,.project-caption>span{font-size:inherit;line-height:1}
+.service-arrow .line-arrow{width:20px;height:20px;stroke-width:1.1;color:#7b8181}
+.project-caption>span .line-arrow{width:20px;height:20px;stroke-width:1.15;color:#4e5a60}
+.gallery-open .line-arrow{width:15px;height:15px;stroke-width:1.35}
+.gallery-open{font-size:inherit}
