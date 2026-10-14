@@ -1,0 +1,29 @@
+name: Preparar fotos de RD
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'RD_Construcciones_Fotos_Web (1).zip'
+      - 'WhatsApp Image 2026-10-12 at 15.54.27 (1).jpeg'
+      - '.github/workflows/preparar-fotos.yml'
+permissions:
+  contents: write
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extraer fotos y copiar logo
+        run: |
+          unzip -o 'RD_Construcciones_Fotos_Web (1).zip' 'assets/*'
+          mkdir -p assets
+          cp 'WhatsApp Image 2026-10-12 at 15.54.27 (1).jpeg' assets/logo-rd.jpeg
+      - name: Confirmar fotografías en el repositorio
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/
+          if ! git diff --cached --quiet; then
+            git commit -m 'assets: integrar fotografías y logo de RD'
+            git push
+          fi
